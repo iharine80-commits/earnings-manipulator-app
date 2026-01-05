@@ -1,0 +1,1 @@
+# earnings-manipulator-app
