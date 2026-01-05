@@ -4,7 +4,6 @@ import numpy as np
 
 st.title("Earnings Manipulation Detector")
 
-# Load trained model
 with open("model.pkl", "rb") as f:
     model = pickle.load(f)
 
@@ -21,9 +20,9 @@ LEVI = st.number_input("LEVI", value=0.0)
 
 if st.button("Predict"):
     X = np.array([[DSRI, GMI, AQI, SGI, DEPI, SGAI, ACCR, LEVI]])
-    prediction = model.predict(X)
+    result = model.predict(X)
 
-    if prediction[0] == 1:
+    if result[0] == 1:
         st.error("⚠️ Likely Earnings Manipulator")
     else:
         st.success("✅ Not a Manipulator")
